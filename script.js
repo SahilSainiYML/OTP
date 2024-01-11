@@ -8,6 +8,7 @@ document.addEventListener("keyup", (e) => {
       e.target.previousElementSibling.focus();
     }
   } else {
+    e.target.value = e.key;
     if (e.target !== input4) {
       e.target.nextElementSibling.focus();
     }

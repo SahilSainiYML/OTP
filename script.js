@@ -1,16 +1,17 @@
 const input1 = document.querySelector(".input:nth-child(1)");
 const input4 = document.querySelector(".input:nth-child(4)");
 const inputs = document.getElementById("inputs");
-document.addEventListener("keyup", (e) => {
-  if (e.key === "Backspace" || e.key === "Delete") {
-    e.target.value = "";
-    if (e.target !== input1) {
-      e.target.previousElementSibling.focus();
-    }
-  } else {
-    e.target.value = e.key;
-    if (e.target !== input4) {
-      e.target.nextElementSibling.focus();
+
+inputs.addEventListener("keyup", function (e) {
+  if (e.target.value && !isNaN(Number(e.target.value))) {
+    e.target.nextElementSibling?.focus();
+  }
+});
+
+inputs.addEventListener("keydown", function (e) {
+  if (e.key == "Delete" || e.key == "Backspace") {
+    if (!e.target.value) {
+      e.target.previousElementSibling?.focus();
     }
   }
 });
